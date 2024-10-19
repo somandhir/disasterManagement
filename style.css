@@ -1,0 +1,40 @@
+html{
+    font-size: 100%; /*62.5% of 16px = 10px, And default 1 rem is 16 px...so to change it to 10 px*/ 
+    overflow-x: hidden; /*This prevents horizontal scrolling on the webpage by hiding any content that overflows beyond the right or left edges of the viewport*/
+    scroll-padding-top: 9rem; /*This adds a 9rem padding at the top of the page, for header*/
+    scroll-behavior: smooth; /*This ensures that when the user clicks on a link that jumps to a section , the page will scroll smoothly to that location rather than jumping instantly.*/
+}
+
+.logo{
+    color: #ECB176;
+}
+
+.signUp{
+    background-color: #ECB176 !important; 
+}
+
+.raj:hover{
+    color: #FED8B1 !important;
+}
+
+.background{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(black, white);
+    background: url(./photorealistic-hands-holding-planet-earth1.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background h1{
+    margin-top: 8rem;
+    color: white;
+    font-size: 10rem;
+
+}
+.background h1 span{
+    color: #FED8B1;
+}
