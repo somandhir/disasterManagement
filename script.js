@@ -27,3 +27,48 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
     }
 });
+
+var placeholders = [
+    "Near-by hospitals...",
+    "Find nearby clinics...",
+    "Search for emergency rooms...",
+    "Locate health centers..."
+  ];
+  var i = 0;
+  var typingSpeed = 100; // Speed of typing (in milliseconds)
+  var deletingSpeed = 50; // Speed of deleting (in milliseconds)
+  var delayBetweenLines = 1000; // Delay before starting to delete (in milliseconds)
+  var currentIndex = 0; // Index to track character position
+  
+  function typeWriter() {
+    let currentText = placeholders[i]; // Get the current line of text
+    
+    // If there are still characters left to type, type the next character
+    if (currentIndex < currentText.length) {
+      document.getElementById("demo").setAttribute("placeholder", currentText.substring(0, currentIndex + 1));
+      currentIndex++;
+      setTimeout(typeWriter, typingSpeed);
+    } 
+    // If the entire line is typed, wait and then start deleting
+    else {
+      setTimeout(deleteWriter, delayBetweenLines);
+    }
+  }
+  
+  function deleteWriter() {
+    let currentText = placeholders[i]; // Get the current line of text  
+    if (currentIndex > 0) {
+      document.getElementById("demo").setAttribute("placeholder", currentText.substring(0, currentIndex - 1));
+      currentIndex--;
+      setTimeout(deleteWriter, deletingSpeed);
+    } 
+    // If the entire line is deleted, move to the next line and start typing again
+    else {
+      i = (i + 1) % placeholders.length; // Move to the next line, reset to 0 when at the end
+      setTimeout(typeWriter, typingSpeed);
+    }
+  }
+  
+  // Start the auto-typing effect
+  typeWriter();
+  
