@@ -237,3 +237,6 @@ header.scrolled {
     justify-content: center;
     align-items: center;
 }
+.text-end{
+    width: 10rem !important;
+}
